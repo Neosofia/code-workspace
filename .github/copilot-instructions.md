@@ -7,7 +7,7 @@
 - Never reference /memories/, tool names, or internal agent state in any file committed to the repo
 - **Never change `.env` files** — do not write, copy, create, or modify any `.env`, unless a human explicitly asks you to
 - When using spec kit
-  - don't put contracts in the spec folder; each service owns its API contract at `services/<service>/openapi.json` (per [ADR-0008](../architecture/structurizr/decisions/0008-published-json-schema-contracts-for-api-testing.md)); cross-service/shared schemas (e.g. `log.json`) live in `schemas/` (see [schemas/README.md](../schemas/README.md)); specs link to contracts, not the other way around
+  - don't put contracts in the spec folder; each service owns its API contract at `services/<service>/openapi.json` cross-service/shared schemas (e.g. `log.json`) are here: https://github.com/Neosofia/schemas
   - Keep technical details out of specs as much as possible; focus on user needs and behavior
   - after implementation is complete, run a **distillation pass**: walk every transient spec-kit artifact (research.md, plan.md, tasks.md, checklists/, contracts/ drafts, data-model.md, quickstart.md, etc.) and for each one decide:
     - **memorialize** — promote durable decisions to their canonical home (ADR for technical decisions, Constitution for principles, SECURITY.md / README.md for operational facts, code comments or migrations for data model, openapi.json for contracts)
@@ -39,10 +39,3 @@
   - Architecture - C4 diagrams in architecture/structurizr
   - Governance -> ADRs, Architecture, Constitution
   
-## Project Governance Pointers
-
-- [Constitution](../.specify/memory/constitution.md) — core principles and non-negotiables
-- [Architecture](../architecture/structurizr/) — C4 model and component diagrams
-- [Architecture Decision Records (ADRs)](../architecture/structurizr/decisions/) — binding technical decisions
-- [Feature specifications](../specs/) — one subdirectory per feature (e.g. `specs/014-authentication-service/`)
-
