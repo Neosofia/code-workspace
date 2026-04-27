@@ -1,0 +1,43 @@
+{
+  "folders": [
+    {
+      "name": "Workspace",
+      "path": "."
+    },
+    {
+      "name": "Clinical Data Platform (CDP)",
+      "path": "../cdp"
+    },
+    {
+      "name": "platform-workflows",
+      "path": "../platform-workflows"
+    },
+    {
+      "name": "infrastructure",
+      "path": "../infrastructure"
+    },
+    {
+      "name": "schemas",
+      "path": "../schemas"
+    },
+    {
+      "name": "sdk",
+      "path": "../sdk"
+    },
+    {
+      "name": "templates",
+      "path": "../templates"
+    },
+    {
+      "name": "authentication",
+      "path": "../authentication"
+    },
+    {
+      "name": "authorization",
+      "path": "../authorization"
+    },
+    {
+      "path": "../corporate"
+    }
+  ]
+}
