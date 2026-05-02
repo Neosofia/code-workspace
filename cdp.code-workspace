@@ -38,6 +38,12 @@
     },
     {
       "path": "../corporate"
+    },
+    {
+      "path": "../docs"
+    },
+    {
+      "path": "../notification"
     }
   ]
 }
