@@ -35,7 +35,7 @@
   - Data model -> Alembic migration in services
   - Research -> ADRs in architecture/structurizr/decisions
   - Implementation -> code in services
-  - Principles - Constitution in .specify/memory/constitution.md
+  - Principles - Constitution in architecture/constitution.md
   - Architecture - C4 diagrams in architecture/structurizr
   - Governance -> ADRs, Architecture, Constitution
   
