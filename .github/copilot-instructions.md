@@ -4,16 +4,30 @@
 - Never update this document; unless a human asks you to
 - **Always start services using the top-level compose file** — `docker compose -f docker-compose.dev.yml up -d`; never run `docker compose up` from inside a service directory, as per-service compose files lack shared infrastructure (Traefik, LocalStack secret seeding) and will fail
 - Never commit to the repo; unless a human asks you to
+- When bumping a service version, always treat it as a release workflow: update the metadata file (`pyproject.toml` or equivalent), run the package manager lock-sync step (`uv sync`, etc.), stage both the metadata and lock file, commit the changes, then tag and push.
 - Never reference /memories/, tool names, or internal agent state in any file committed to the repo
 - **Never change `.env` files** — do not write, copy, create, or modify any `.env`, unless a human explicitly asks you to
 - When using spec kit
   - don't put contracts in the spec folder; each service owns its API contract at `services/<service>/openapi.json` cross-service/shared schemas (e.g. `log.json`) are here: https://github.com/Neosofia/schemas
-  - Keep technical details out of specs as much as possible; focus on user needs and behavior
-  - after implementation is complete, run a **distillation pass**: walk every transient spec-kit artifact (research.md, plan.md, tasks.md, checklists/, contracts/ drafts, data-model.md, quickstart.md, etc.) and for each one decide:
-    - **memorialize** — promote durable decisions to their canonical home (ADR for technical decisions, Constitution for principles, SECURITY.md / README.md for operational facts, code comments or migrations for data model, openapi.json for contracts)
-    - **let go** — delete the file; spec-kit scaffolding is not a deliverable
-    - the spec.md itself stays as the human-readable feature record, but must link forward to the memorialized artifacts, not backward to deleted scaffolding
-  - a feature is not "done" until the distillation pass leaves the repo DRY... Trigger the pass with "distill NNN" (e.g. "distill 014").
+  - Exclude all technical details from specs unless they are essential to understanding user needs and behavior, or when using the tech as an example/possible solution.
+  - after implementation is complete, run a **distillation pass**:
+    1. identify every transient spec-kit artifact:
+       - `research.md`, `plan.md`, `tasks.md`
+       - `checklists/`
+       - `contracts/` drafts
+       - `data-model.md`
+       - `quickstart.md`
+    2. decide for each artifact whether to:
+       - **memorialize** — promote durable decisions to their canonical home
+         - ADR for technical decisions
+         - Constitution for principles
+         - `SECURITY.md` / `README.md` for operational facts
+         - code comments or migrations for data model
+         - `openapi.json` for contracts
+       - **let go** — delete the file; spec-kit scaffolding is not a deliverable
+    3. keep the `spec.md` as the human-readable feature record, but update it to link forward to memorialized artifacts, not backward to deleted scaffolding
+    4. a feature is not "done" until the distillation pass leaves the repo DRY
+    5. trigger the pass with `distill NNN` (e.g. `distill 014`)
 
 ## Code Style (Humans and AI)
 
