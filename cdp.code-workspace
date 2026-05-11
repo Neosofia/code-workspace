@@ -40,6 +40,9 @@
     },
     {
       "path": "../notification"
+    },
+    {
+      "path": "../capabilities"
     }
   ]
 }
