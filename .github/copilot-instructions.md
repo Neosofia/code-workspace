@@ -3,6 +3,7 @@
 ## AI Rules
 - Never update this document; unless a human asks you to
 - Never commit to the repo; unless a human asks you to
+- Always run all tests (with coverage) and verify a clean zero exit code before making any commits or pushing code.
 - All commits MUST be signed using SSH. Never bypass signing (e.g., never use `-c commit.gpgsign=false`). Ensure a key is set as the default for all commits (for example: `git config --global gpg.format ssh && git config --global user.signingkey ~/.ssh/id_ed25519.pub && git config --global commit.gpgsign true`).
 - When bumping a service version, always treat it as a release workflow: update the metadata file (`pyproject.toml` or equivalent), run the package manager lock-sync step (`uv sync`, etc.), stage both the metadata and lock file, commit the changes, then tag and push.
 - Never reference /memories/, tool names, or internal agent state in any file committed to the repo
@@ -48,7 +49,7 @@
   - Per-service API contract -> `services/<service>/openapi.json` (ADR-0008)
   - Shared/cross-service schemas -> `schemas/` (e.g. `schemas/log.json`)
   - Data model -> Alembic migration in services
-  - Research -> ADRs in architecture/structurizr/decisions
+  - Research -> ADRs in architecture/adrs
   - Implementation -> code in services
   - Principles - Constitution in architecture/constitution.md
   - Architecture - C4 diagrams in architecture/structurizr
