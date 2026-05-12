@@ -2,8 +2,8 @@
 
 ## AI Rules
 - Never update this document; unless a human asks you to
-- **Always start services using the top-level compose file** — `docker compose -f docker-compose.dev.yml up -d`; never run `docker compose up` from inside a service directory, as per-service compose files lack shared infrastructure (Traefik, LocalStack secret seeding) and will fail
 - Never commit to the repo; unless a human asks you to
+- All commits MUST be signed using SSH. Never bypass signing (e.g., never use `-c commit.gpgsign=false`). Ensure a key is set as the default for all commits (for example: `git config --global gpg.format ssh && git config --global user.signingkey ~/.ssh/id_ed25519.pub && git config --global commit.gpgsign true`).
 - When bumping a service version, always treat it as a release workflow: update the metadata file (`pyproject.toml` or equivalent), run the package manager lock-sync step (`uv sync`, etc.), stage both the metadata and lock file, commit the changes, then tag and push.
 - Never reference /memories/, tool names, or internal agent state in any file committed to the repo
 - **Never change `.env` files** — do not write, copy, create, or modify any `.env`, unless a human explicitly asks you to
@@ -32,6 +32,7 @@
 ## Code Style (Humans and AI)
 
 - Python: follow PEP 8; all imports at the top grouped by standard library, third-party, and local.
+- Use `uuidv7()` for all UUID generation in PostgreSQL (do not use `gen_random_uuid()` or `uuid_generate_v*()`).
 - Environment variables only for secrets and service configuration with "safe" defaults
 - No PHI/PII/SPII in logs, metrics, or error messages 
 
