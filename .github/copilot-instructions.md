@@ -18,6 +18,13 @@
 - Environment variables only for secrets and service configuration with "safe" defaults
 - No PHI/PII/SPII in logs, metrics, or error messages 
 
+## Testing
+
+- Integration tests verify the contract surface (api/ui) and exercise the stack down to external dependencies (db/api).
+- Integration tests should be happy-path only. Save negative testing for unit tests
+- Unit tests cover sad-path behavior with isolated, in-function patching for external library and system calls.
+- Do not defeat integration tests by patching the service layer under test; stub only real external dependencies such as DB session creation, HTTP calls, or external SDKs.
+
 ## Design, Implementation & Documentation
 
 - **DRY** — one authoritative source for every fact; no copy-paste logic or duplicated config
