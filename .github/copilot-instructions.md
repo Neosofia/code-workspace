@@ -6,6 +6,7 @@
 - Always run all tests (with coverage) and verify a clean zero exit code before making any commits or pushing code.
 - All commits MUST be signed using SSH. Never bypass signing (e.g., never use `-c commit.gpgsign=false`). Ensure a key is set as the default for all commits (for example: `git config --global gpg.format ssh && git config --global user.signingkey ~/.ssh/id_ed25519.pub && git config --global commit.gpgsign true`).
 - When bumping a service version, always treat it as a release workflow: update the metadata file (`pyproject.toml` or equivalent), run the package manager lock-sync step (`uv sync`, etc.), stage both the metadata and lock file, commit the changes, then tag and push.
+- Always use `pnpm` for JavaScript/TypeScript package management and `uv` for Python dependency lock-sync and package management.
 - Never use local artifacts for publishing or dependency resolution. Only use published CI-built resources for wheels, container images, crates, packages, and similar artifacts.
 - Never reference /memories/, tool names, or internal agent state in any file committed to the repo
 - **Never change `.env` files** — do not write, copy, create, or modify any `.env`, unless a human explicitly asks you to
@@ -30,7 +31,7 @@
 - **DRY** — one authoritative source for every fact; no copy-paste logic or duplicated config
 - **No tight coupling** — this applies to procedures in documentation, services, and code etc.
 - **Commit lockfiles** — `uv.lock` and equivalent lockfiles MUST be committed; they pin dependency hashes and are the first line of defence against supply chain attacks
-- **6Cs** Complete, Correct, Concise, Courtesy, Clear, Considerate
+- **6Cs** Complete, Correct, Concise,  Clear, Courtesy, Considerate
 - **YAGNI**
 - **Explicit over implicit** — name things precisely; avoid magic numbers, strings, or behavior
 - **APFE&EIIP** A place for everything and everything in its place
