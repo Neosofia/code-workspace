@@ -43,6 +43,9 @@
     },
     {
       "path": "../capabilities"
+    },
+    {
+      "path": "../user"
     }
   ],
   "settings": {
