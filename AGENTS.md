@@ -43,4 +43,14 @@
   - Principles - Constitution in architecture/constitution.md
   - Architecture - C4 diagrams in architecture/structurizr
   - Governance -> ADRs, Architecture, Constitution
-  
+
+## Service specifications (gold standard)
+
+Cross-cutting transport, client platform support, logging, API contracts, and accessibility live in [000-platform-baseline.md](https://github.com/Neosofia/cdp/blob/main/specs/000-platform-baseline.md); feature specs **001–018** inherit it and state only component-specific additions.
+
+Specs **000–018** in `cdp/specs/` follow this format (exemplar: [018-user-service.md](https://github.com/Neosofia/cdp/blob/main/specs/018-user-service.md)). When writing or rewriting a service spec:
+
+- **Story first** -- Open with why the service exists, how it fits the platform (one or two paragraphs), then client objectives, then functional and operational requirements. No metadata, implementation details, or duplicated content that belongs in another service's spec or repo.
+- **Objectives in client language** -- State what operators, end users, and deploying products need to accomplish (intent and outcomes), not a laundry list of API endpoints or UI screens.
+- **Requirements with context** -- Each FR/OR states the obligation and, where helpful, a short sentence on why (readable roles, auditability, measurability). Omit RFC-style MUST; requirements are binding by default. Operational requirements focus on what operators must be able to measure or deploy, not SLO numbers or logging implementation detail.
+- **DRY and external pointers** -- Universal transport, client platform support, telemetry, contracts, and accessibility live in spec 000; API shape lives in `openapi.json`; security and authorization depth in `SECURITY.md`; aggregation and SLIs in the operational-metrics spec (011). Further reading links only to canonical GitHub URLs in the owning repos, not relative paths across the workspace. Use `--` (double hyphen), not em dashes, in spec prose.
