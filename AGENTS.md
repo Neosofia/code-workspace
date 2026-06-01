@@ -8,6 +8,7 @@
 - When bumping a service version, always treat it as a release workflow: update the metadata file (`pyproject.toml` or equivalent), run the package manager lock-sync step (`uv sync`, etc.), stage both the metadata and lock file, commit the changes, then tag and push.
 - Always use `pnpm` for JavaScript/TypeScript package management and `uv` for Python dependency lock-sync and package management.
 - Never use local artifacts for publishing or dependency resolution. Only use published CI-built resources for wheels, container images, crates, packages, and similar artifacts.
+- **Never manually upload wheels or create GitHub releases for SDK packages** (no `gh release create` with local `dist/*`, no ad-hoc wheel uploads). Bump `version` in the package `pyproject.toml`, commit, push, then tag (`<package>/vX.Y.Z`) so the SDK `publish` workflow builds and attaches artifacts. If CI fails, fix the workflow or the commit the tag points at—do not bypass CI.
 - Never reference /memories/, tool names, or internal agent state in any file committed to the repo
 - **Never change `.env` files** — do not write, copy, create, or modify any `.env`, unless a human explicitly asks you to
 - follow tagging convention: `<service>/vX.Y.Z` (e.g. `authentication/v1.2.3`)
