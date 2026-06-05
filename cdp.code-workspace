@@ -46,6 +46,12 @@
     },
     {
       "path": "../user"
+    },
+    {
+      "path": "../chat"
+    },
+    {
+      "path": "../care-episode"
     }
   ],
   "settings": {
