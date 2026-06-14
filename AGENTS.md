@@ -71,25 +71,4 @@ AKA **APFE&EIIP** — a place for everything and everything in its place.
 
 Data model changes belong in Alembic migrations in the service repo (see `OPERATIONS.md`).
 
-### Changelog (`CHANGELOG.md`)
-
-Write for **people who use or administer the product** (clinicians, operators, integrators reading outcomes). Follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/): file name `CHANGELOG.md`, title `# Changelog`, sections **Added**, **Changed**, **Fixed**, **Removed**.
-
-- Describe **what they can do or notice** (screens, workflows, behavior)
-- Name UI areas the way users see them (**Admin → Users**).
-- Put version pins, migrations, secrets, and smoke tests in `INSTALLATION_PLAN.md`, not here.
-
-### Version identifiers
-
-- **CDP UI** uses **CalVer** `YYYY.MM.DD` (release day) in `ui/src/lib/uiVersion.ts` (`UI_RELEASE_VERSION`), shown in the app footer.
-- **Backend services** use **semver** from `pyproject.toml`, exposed on `GET /health` as `"version": "<semver>"` alongside `"status"` (orchestrator probes that only check HTTP status remain valid).
-
-### Spec documents (`specs/`)
-
-A baseline spec should always be used to avoid duplication in other specs. For example:
-[000-platform-baseline.md](https://github.com/Neosofia/cdp/blob/main/specs/000-platform-baseline.md).
-
-- **Story first** -- Open with why the service exists, how it fits the platform (one or two paragraphs), then client objectives, then functional and operational requirements. No metadata, implementation details, or duplicated content that belongs in other places.
-- **Objectives in client language** -- State what operators, end users, and deploying products need to accomplish (intent and outcomes), not a laundry list of API endpoints or UI screens.
-- **Requirements with context** -- Each FR/OR states the obligation and, where helpful, a short sentence on why (readable roles, auditability, measurability). Omit RFC-style MUST; requirements are binding by default. Operational requirements focus on what operators must be able to measure or deploy, not SLO numbers or logging implementation detail.
-- **DRY and external pointers** -- Universal transport, client platform support, telemetry, contracts, and accessibility live in spec 000; API shape lives in `openapi.json`; security and authorization depth in `SECURITY.md`; aggregation and SLIs in the operational-metrics spec (011). Further reading links only to canonical GitHub URLs in the owning repos, not relative paths across the workspace. Use `--` (double hyphen), not em dashes, in spec prose.
+**Documentation gold standards** (changelog, installation plan, version identifiers, service spec format): [Documentation gold standards](https://neosofia.tech/resources/guides/documentation/) in the corporate resources guides.
