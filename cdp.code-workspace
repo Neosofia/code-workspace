@@ -55,5 +55,6 @@
     }
   ],
   "settings": {
+    "markdown.preview.security.level": "allowInsecureLocalContent"
   }
 }
