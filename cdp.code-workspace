@@ -52,6 +52,9 @@
     },
     {
       "path": "../care-episode"
+    },
+    {
+      "path": "../tmp"
     }
   ],
   "settings": {

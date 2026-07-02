@@ -27,6 +27,7 @@
 - Integration tests should be happy-path only. Save negative testing for unit tests.
 - Unit tests cover sad-path behavior with isolated, in-function patching for external library and system calls.
 - Do not defeat integration tests by patching the service layer under test; stub only real external dependencies such as DB session creation, HTTP calls, or external SDKs.
+- Browser UI: happy-path e2e only (Playwright); no unit or integration tests.
 
 ## Design, Implementation & Documentation
 
@@ -38,6 +39,7 @@ Always observe these principles:
 - **6Cs** — documentation and code should be Complete, Correct, Concise, Clear, Courtesy, Considerate.
 - **YAGNI/KISS**
 - **Explicit over implicit** — name things precisely; avoid magic numbers, strings, or shorthand.
+- **No denormalization** — Each fact has one authoritative owner. Do not copy fields from another service or entity onto local rows or API payloads for convenience. Store foreign keys and resolve at read time (call the owner, or use data the caller already has).
 
 # All the Things Place
 
